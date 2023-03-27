@@ -23,4 +23,4 @@ pd.options.display.max_rows =5
 '''
 Read data from json file
 '''
-json_data = pd.read_json()
+json_data = pd.read_json('MOCk_DATA.json')
