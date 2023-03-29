@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("MOCK_DATA .csv")
 
@@ -37,3 +38,32 @@ df.fillna(20)
     Replace Only For Specified Columns
 '''
 df['first_name'].fillna("Test", inplace=True)
+
+'''
+Replace the specific position data
+'''
+
+df.loc[1,'first_name'] ="Updated Name"              # this will change the data of 1st location of column first_name
+print(df)
+
+
+'''
+Looping around the data
+'''
+for x in df.index:
+    if df.loc[x, 'gender'] =="Male":
+        df.drop(x, inplace=True)
+print(df)
+
+'''
+Removing duplicates
+'''
+
+df.drop_duplicates(inplace=True)
+
+'''
+Plotting the dataframe
+'''
+df.plot(kind="scatter", y="gender", x='ip_address')
+plt.show()
+
